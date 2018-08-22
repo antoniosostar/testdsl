@@ -1,7 +1,8 @@
+
 #!groovy
 
 pipeline {
-    agent none
+    agent any
 
     options {
         buildDiscarder(logRotator(numToKeepStr: '20', artifactDaysToKeepStr: '7', artifactNumToKeepStr: '5'))
@@ -14,6 +15,18 @@ pipeline {
 
             steps {
                 sh "echo jej"
+            }
+        }
+    }
+    post {
+        success {
+            script {
+                sh "echo da"
+            }
+        }
+        failure {
+            script {
+                sh "echo ne"
             }
         }
     }
