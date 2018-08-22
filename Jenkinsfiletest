@@ -17,16 +17,4 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            script {
-                sh "echo da"
-            }
-        }
-        failure {
-            script {
-                sh "echo ne"
-            }
-        }
-    }
 }
